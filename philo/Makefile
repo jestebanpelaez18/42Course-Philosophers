@@ -1,0 +1,40 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/09 17:22:57 by jpelaez-          #+#    #+#              #
+#    Updated: 2023/05/09 17:25:24 by jpelaez-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = philo
+
+SRC = 
+
+OBJECT = $(SRC:.c=.o)
+
+HEADER = so_long.h
+
+FLAGS = -Wall -Wextra -Werror 
+IFLAGS = -I $(HEADER) 
+
+CC = CC 
+
+all: $(NAME) 
+
+$(NAME):  $(OBJECT) 
+		$(CC) $(FLAGS) $(IFLAGS) $(OBJECT) -o $(NAME) 
+
+	
+clean:
+	rm -f $(OBJECT) 
+
+fclean: clean
+	   rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all re fclean clean
