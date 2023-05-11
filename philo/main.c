@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:14:30 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/11 18:19:32 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:25:29 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ int	main(int argc, char **argv)
 		ft_putendl_fd("Error, invalid arguments", 2);
 		return (0);
 	}
-	init_philo(&philo, argv);
+	init_philo(&philo, argv, argc);
 	return (0);
 }

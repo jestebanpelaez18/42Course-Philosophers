@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/11 18:18:16 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:25:32 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int		ft_atoi(char *number);
 int		ft_isdigit(int digit);
 
 void	ft_putendl_fd(char *s, int fd);
-void	create_vars(t_list *philo, char **phi_arg);
+void	create_vars(t_list *philo, char **phi_arg, int argc);
 #endif
