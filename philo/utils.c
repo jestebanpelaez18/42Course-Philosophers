@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:22:58 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/10 16:52:03 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:19:36 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,10 @@ int	ft_atoi(char *number)
 	return ((int)(result * sing));
 }
 
+int	ft_isdigit(int digit)
+{
+	if (digit >= 48 && digit <= 57)
+		return (1);
+	else
+		return (0);
+}
