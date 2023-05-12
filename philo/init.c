@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/11 18:25:35 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:23:55 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,7 @@ void	init_philo(t_list *philo, char **phi_arg, int argc)
 	philo->t_sleep = ft_atoi(phi_arg[4]);
 	if (argc == 6)
 		philo->n_times_eat = ft_atoi(phi_arg[5]);
+	else
+		philo->n_times_eat = 0;
+
 }
