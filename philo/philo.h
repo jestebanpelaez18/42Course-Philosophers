@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/12 18:56:40 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/13 16:37:34 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 	int	t_eat;
 	int	n_times_eat;
 	int	fork_mutex;
+	int n_dead_philo;
 }		t_list;
 
 int		ft_atoi(char *number);
