@@ -6,26 +6,11 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:22:58 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/11 18:19:36 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/13 16:43:21 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	ft_putendl_fd(char *s, int fd)
-{
-	size_t	i;
-
-	i = 0;
-	if (s == NULL)
-		return ;
-	while (s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
-	write(fd, "\n", 1);
-}
 
 int	ft_atoi(char *number)
 {

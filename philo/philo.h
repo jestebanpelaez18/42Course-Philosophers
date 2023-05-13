@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/13 16:37:34 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/13 16:47:56 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ typedef struct s_list
 	int	t_eat;
 	int	n_times_eat;
 	int	fork_mutex;
-	int n_dead_philo;
+	int	n_dead_philo;
 }		t_list;
 
 int		ft_atoi(char *number);
 int		ft_isdigit(int digit);
+int		set_mutex(t_list *philo);
 
-void	ft_putendl_fd(char *s, int fd);
 void	create_vars(t_list *philo, char **phi_arg, int argc);
+void	init_philo(t_list *philo, char **phi_arg, int argc);
 #endif

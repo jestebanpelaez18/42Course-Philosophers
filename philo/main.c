@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:14:30 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/13 16:42:22 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/13 16:49:05 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,10 @@ static int	check_arguments(char **arguments, int n_arg)
 	}
 	while (arguments[i] != NULL)
 	{
-		j = 0;
-		while (arguments[i][j] != '\0')
+		if (!ft_isdigit(ft_atoi(arguments[i])))
 		{
-			if (!ft_isdigit(ft_atoi(arguments[i][j])))
-			{
-				printf("Error, invalid arguments\n");
-				return (0);
-			}
-			j++;
+			printf("Error, invalid arguments\n");
+			return (0);
 		}
 		i++;
 	}
@@ -44,10 +39,10 @@ int	main(int argc, char **argv)
 {
 	t_list	philo;
 
-	if (!check_arguments(**argv, argc))
+	if (!check_arguments(argv, argc))
 		return (0);
 	init_philo(&philo, argv, argc);
-	if (!set_mutex(&philo))
-		return (0);
+	// if (!set_mutex(&philo))
+	// 	return (0);
 	return (0);
 }
