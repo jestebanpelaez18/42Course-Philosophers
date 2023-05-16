@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:14:30 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/13 16:49:05 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:20:44 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static int	check_arguments(char **arguments, int n_arg)
 	int	i;
 	int	j;
 
-	i = 0;
-	if (n_arg != 6 || n_arg != 5)
+	i = 1;
+	if (n_arg != 5 && n_arg != 6)
 	{
-		printf("Error, invalid arguments\n");
+		printf("Error, invalid number of arguments\n");
 		return (0);
 	}
 	while (arguments[i] != NULL)
 	{
-		if (!ft_isdigit(ft_atoi(arguments[i])))
+		if (!non_numeric_parameters(arguments[i]))
 		{
 			printf("Error, invalid arguments\n");
 			return (0);

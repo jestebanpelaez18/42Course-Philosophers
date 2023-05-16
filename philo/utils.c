@@ -6,11 +6,18 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:22:58 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/13 16:43:21 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:20:03 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static int	is_number(char argument)
+{
+	if (argument >= '0' && argument <= '9')
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(char *number)
 {
@@ -41,10 +48,18 @@ int	ft_atoi(char *number)
 	return ((int)(result * sing));
 }
 
-int	ft_isdigit(int digit)
+int	non_numeric_parameters(char *param)
 {
-	if (digit >= 48 && digit <= 57)
-		return (1);
-	else
-		return (0);
+	int	i;
+
+	i = 0;
+	if ((param[i] == '-' || param[i] == '+') && param[i + 1] != '\0')
+		i++;
+	while (param[i] != '\0')
+	{
+		if (!is_number(param[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
