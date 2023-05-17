@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:14:30 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/17 15:08:06 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:52:59 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ static int	check_arguments(char **arguments, int n_arg)
 
 int	main(int argc, char **argv)
 {
-	t_list	philo;
+	t_list	gen_philo;
 
 	if (!check_arguments(argv, argc))
 		return (0);
-	init_philo(&philo, argv, argc);
-	if (!set_mutex(&philo))
+	get_data(&gen_philo, argv, argc);
+	if (!set_mutex(&gen_philo))
+		return (0);
+	if (!generate_philos(&gen_philo))
 		return (0);
 	return (0);
 }
