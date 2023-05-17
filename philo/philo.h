@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/17 15:55:08 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:23:12 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ typedef struct s_list
 typedef struct s_philo
 {
 	struct s_list	*gen_data;
+	int				identity_n;
+	int				t_die;
+	int				t_sleep;
+	int				t_eat;
 	pthread_mutex_t	l_fork;
 	pthread_mutex_t	r_fork;
 }					t_philo;
