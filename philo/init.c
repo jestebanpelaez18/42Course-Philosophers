@@ -6,13 +6,13 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/17 17:43:59 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:07:50 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	get_data(t_list *gen_philo, char **phi_arg, int argc)
+int	get_data(t_list *gen_philo, char **phi_arg, int argc)
 {
 	gen_philo->n_philo = ft_atoi(phi_arg[1]);
 	gen_philo->t_die = ft_atoi(phi_arg[2]);
@@ -23,6 +23,11 @@ void	get_data(t_list *gen_philo, char **phi_arg, int argc)
 		gen_philo->n_times_eat = ft_atoi(phi_arg[5]);
 	else
 		gen_philo->n_times_eat = -1;
+	if(gen_philo->n_philo <= 0 || gen_philo->t_die <= 0 || gen_philo->t_eat <= 0 ||  gen_philo->t_sleep <= 0)
+	{
+		printf("Error, not valid arguments");
+		return (0);
+	}
 	gen_philo->dead_philo = 0;
 }
 

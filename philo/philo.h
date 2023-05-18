@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/17 17:42:37 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:07:56 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ int					ft_atoi(char *number);
 int					non_numeric_parameters(char *param);
 int					set_mutex(t_list *philo);
 int					generate_philos(t_list *gen_philo);
-
-void				get_data(t_list *philo, char **phi_arg, int argc);
+int				get_data(t_list *philo, char **phi_arg, int argc);
 #endif
