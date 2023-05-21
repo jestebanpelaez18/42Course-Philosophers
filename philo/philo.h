@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/18 18:07:56 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/21 10:08:58 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,23 @@ typedef struct s_list
 	int				n_times_eat;
 	int				dead_philo;
 	pthread_mutex_t	*fork_mutex;
-	int				n_dead_philo;
+	pthread_mutex_t *read;
+	pthread_mutex_t *write;
 	t_philo			*philos;
 }					t_list;
 
 typedef struct s_philo
 {
-	struct s_list	*gen_data;
+	struct s_list	*info;
 	int				identity_n;
-	int				t_die;
-	int				t_sleep;
-	int				t_eat;
+	int 			eat_count;
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*r_fork;
 }					t_philo;
 
 int					ft_atoi(char *number);
 int					non_numeric_parameters(char *param);
-int					set_mutex(t_list *philo);
-int					generate_philos(t_list *gen_philo);
-int				get_data(t_list *philo, char **phi_arg, int argc);
+int					set_mutex(t_list *info);
+int					generate_philos(t_list *info);
+int					get_data(t_list *info, char **phi_arg, int argc);
 #endif
