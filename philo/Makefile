@@ -6,13 +6,14 @@
 #    By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 17:22:57 by jpelaez-          #+#    #+#              #
-#    Updated: 2023/05/13 16:50:15 by jpelaez-         ###   ########.fr        #
+#    Updated: 2023/05/21 12:36:42 by jpelaez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
 SRC = main.c init.c utils.c\
+actions.c start_routine.c\
 
 OBJECT = $(SRC:.c=.o)
 
