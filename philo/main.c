@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:14:30 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/21 09:55:19 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/21 11:55:05 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@ int	main(int argc, char **argv)
 {
 	t_list	info;
 
-	if (!check_arguments(argv, argc))
+	if(!check_arguments(argv, argc))
 		return (0);
 	if(!get_data(&info, argv, argc));
 		return(0);
-	if (!set_mutex(&info))
+	if(!set_mutex(&info))
 		return (0);
-	if (!generate_philos(&info))
+	if(!generate_philos(&info))
 		return (0);
+	if(!start_routine(&info))
+		return(0);
 	return (0);
 }

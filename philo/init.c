@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/21 10:10:04 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/21 10:46:52 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	generate_philos(t_list *info)
 		(*info).philos[i].eat_count = 0;
 		(*info).philos[i].identity_n = i + 1;
 		(*info).philos[i].l_fork = i;
-		(*info).philos[i].r_fork = i + 1;		
+		(*info).philos[i].r_fork = ((i + 1) % info->n_philo);		
 		i++;
 	}
 }
