@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/24 16:35:31 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:38:08 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	start_routine(t_list *info)
 
 	i = 0;
 	j = 0;
+	info->start_time = take_time();
 	while (i < info->n_philo)
 	{
 		if (pthread_create(&((*info).philos[i].philo_thr), NULL, &routine,

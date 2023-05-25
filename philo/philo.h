@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/21 12:36:02 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:36:49 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 	int				t_eat;
 	int				n_times_eat;
 	int				dead_philo;
+	int				start_time;
 	pthread_mutex_t	*fork_mutex;
 	pthread_mutex_t *read;
 	pthread_mutex_t *write;
@@ -48,4 +49,5 @@ int					non_numeric_parameters(char *param);
 int					set_mutex(t_list *info);
 int					generate_philos(t_list *info);
 int					get_data(t_list *info, char **phi_arg, int argc);
+int					take_time(void);
 #endif
