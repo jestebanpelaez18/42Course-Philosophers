@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/25 17:36:49 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:11:41 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_list
 	int				n_times_eat;
 	int				dead_philo;
 	int				start_time;
+	int				finish_status;
 	pthread_mutex_t	*fork_mutex;
 	pthread_mutex_t *read;
 	pthread_mutex_t *write;

@@ -6,8 +6,13 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 10:47:04 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/21 12:36:06 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:12:53 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void philo_take_two_fors(t_philo *philo)
+{
+    
+}
