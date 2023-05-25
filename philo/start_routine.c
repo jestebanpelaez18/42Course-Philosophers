@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/25 18:13:36 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:48:41 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void	routine(void *info)
 	r_info = philosopher->info;
 	while(r_info->finish_status != 1)
 	{
-		
+		if(r_info->n_times_eat != -1 && r_info->n_times_eat == philosopher->eat_count)
+			r_info->finish_status = 1;
+		// actions
 	}
 }
 
