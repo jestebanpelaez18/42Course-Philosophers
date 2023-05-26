@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/25 19:48:41 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:25:24 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 void	routine(void *info)
 {
-    t_list *r_info;
-	t_philo *philosopher;
+	t_list	*r_info;
+	t_philo	*philosopher;
 
 	philosopher = info;
 	r_info = philosopher->info;
-	while(r_info->finish_status != 1)
+	while (r_info->finish_status != 1)
 	{
-		if(r_info->n_times_eat != -1 && r_info->n_times_eat == philosopher->eat_count)
+		if (r_info->n_times_eat != -1
+			&& r_info->n_times_eat == philosopher->eat_count)
 			r_info->finish_status = 1;
-		// actions
+		philosopher_eat(philosopher);
+		philosopher_sleep(philosopher);
+		philosopher_think(philosopher);
 	}
 }
 

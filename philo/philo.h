@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/25 18:11:41 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/26 17:37:10 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_list
 	int				start_time;
 	int				finish_status;
 	pthread_mutex_t	*fork_mutex;
-	pthread_mutex_t *read;
-	pthread_mutex_t *write;
+	pthread_mutex_t	*read;
+	pthread_mutex_t	*write;
 	t_philo			*philos;
 }					t_list;
 
@@ -39,9 +39,11 @@ typedef struct s_philo
 {
 	struct s_list	*info;
 	int				identity_n;
-	int 			eat_count;
+	int				eat_count;
+	int				is_eating;
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*r_fork;
+	pthread_mutex_t	*read_updt;
 	pthread_t		*philo_thr;
 }					t_philo;
 
@@ -51,4 +53,9 @@ int					set_mutex(t_list *info);
 int					generate_philos(t_list *info);
 int					get_data(t_list *info, char **phi_arg, int argc);
 int					take_time(void);
+
+void				philo_eat(t_philo *philo);
+void				philo_sleep(t_philo *philo);
+void				philo_forks_in_table(t_philo *philo);
+void				philo_take_two_fors(t_philo *philo);
 #endif
