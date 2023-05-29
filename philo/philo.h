@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/26 17:37:10 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/29 13:12:43 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_philo
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*read_updt;
 	pthread_t		*philo_thr;
+	pthread_t		*checker;
 }					t_philo;
 
 int					ft_atoi(char *number);
@@ -55,7 +56,7 @@ int					get_data(t_list *info, char **phi_arg, int argc);
 int					take_time(void);
 
 void				philo_eat(t_philo *philo);
-void				philo_sleep(t_philo *philo);
 void				philo_forks_in_table(t_philo *philo);
 void				philo_take_two_fors(t_philo *philo);
+void 				message(char *str, t_philo *philo);
 #endif

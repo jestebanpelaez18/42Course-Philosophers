@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/26 17:07:12 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/29 12:41:36 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	set_mutex(t_list *info)
 			return (0);
 		i++;
 	}
-	if (pthread_mutex_init(&info->read, NULL))
+	if (pthread_mutex_init(&info->write, NULL))
 		return (0);
 	return (1);
 }

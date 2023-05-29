@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:22:58 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/26 16:30:21 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/05/29 11:46:46 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,14 @@ int	take_time(void)
 
 	gettimeofday(&current_time, NULL);
 	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
+}
+
+void message(char *str, t_philo *philo)
+{
+	if(philo->info->dead_philo != 1)
+	{
+		pthread_mutex_lock(&philo->info->write);
+		printf("%d %d %s\n", take_time() - philo->info->start_time, philo->identity_n, str);
+		pthread_mutex_unlock(&philo->info->write);
+	}
 }
