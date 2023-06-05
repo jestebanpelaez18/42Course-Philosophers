@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/29 13:12:43 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/05 13:29:26 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_list
 	int				n_times_eat;
 	int				dead_philo;
 	int				start_time;
+	int				finish_eat;
 	int				finish_status;
 	pthread_mutex_t	*fork_mutex;
 	pthread_mutex_t	*read;
@@ -59,4 +60,6 @@ void				philo_eat(t_philo *philo);
 void				philo_forks_in_table(t_philo *philo);
 void				philo_take_two_fors(t_philo *philo);
 void 				message(char *str, t_philo *philo);
+void				philosopher_think(t_philo *philo);
+
 #endif

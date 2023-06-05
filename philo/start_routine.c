@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/29 17:32:13 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/05 13:39:11 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ void check_df(void *info)
 	
 	philo = info;
 	check_info = philo->info;
-	while(check_info->dead_philo != 1 && check_info->finish_status != 1)
+	while(check_info->finish_status != 1)
 	{
 		pthread_mutex_lock(&philo->read_updt);
-		// condition with time
+		if(check_info->n_times_eat != -1 && check_info->finish_eat == check_info->n_philo)
+			check_info->finish_status = 1;
+		if (take_time() >= check_info->t_die && philo->is_eating == 0)
 			message("died", philo);
 		pthread_mutex_unlock(&philo->read_updt);
 	}
@@ -39,10 +41,14 @@ void	routine(void *info)
 		return ;
 	while (r_info->finish_status != 1)
 	{
+		philosopher_eat(philosopher);
 		if (r_info->n_times_eat != -1
 			&& r_info->n_times_eat == philosopher->eat_count)
-			r_info->finish_status = 1;
-		philosopher_eat(philosopher);
+			{
+				r_info->finish_eat++;
+				break ;
+			}
+		philosopher_think(philosopher);
 	}
 }
 

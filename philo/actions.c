@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 10:47:04 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/29 11:50:30 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/05 13:23:54 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,9 @@ void	philo_forks_in_table(t_philo *philo)
 	pthread_mutex_unlock(&philo->r_fork);
 	message("is sleeping",philo);
 	usleep(philo->info->t_sleep);
+}
+
+void	philosopher_think(t_philo *philo)
+{
 	message("is thinking",philo);
 }
