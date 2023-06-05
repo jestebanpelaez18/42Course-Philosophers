@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 10:47:04 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/05 13:23:54 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/05 14:42:33 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	philo_eat(t_philo *philo)
 	philo_take_two_fors(philo);
 	pthread_mutex_lock(&philo->read_updt);
 	philo->is_eating = 1;
+	philo->t_last_eat = take_time();
 	message("is eating", philo);
 	philo->eat_count++;
 	usleep(philo->info->t_eat);
