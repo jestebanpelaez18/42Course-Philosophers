@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/05 15:12:57 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/06 19:59:56 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int	get_data(t_list *info, char **phi_arg, int argc)
 	info->t_eat = ft_atoi(phi_arg[3]);
 	info->t_sleep = ft_atoi(phi_arg[4]);
 	info->dead_philo = 0;
+	// info->start_time = take_time();
+	info->finish_status = 0;
+	info->finish_eat = 0;
 	if (argc == 6)
 		info->n_times_eat = ft_atoi(phi_arg[5]);
 	else
@@ -61,12 +64,14 @@ int	generate_philos(t_list *info)
 		return (0);
 	while (i < info->n_philo)
 	{
-		(*info).philos[i].info = info;
-		(*info).philos[i].eat_count = 0;
-		(*info).philos[i].identity_n = i + 1;
-		(*info).philos[i].l_fork = i;
-		(*info).philos[i].r_fork = ((i + 1) % info->n_philo);
-		pthread_mutex_init((*info).philos[i].read_updt, NULL);
+		info->philos[i].info = info;
+		info->philos[i].eat_count = 0;
+		info->philos[i].t_last_eat = take_time();
+		info->philos[i].is_eating = 0;
+		info->philos[i].identity_n = i + 1;
+		info->philos[i].l_fork = i;
+		info->philos[i].r_fork = ((i + 1) % info->n_philo);
+		pthread_mutex_init(&info->philos[i].read_updt, NULL);
 		i++;
 	}
 	return (1);

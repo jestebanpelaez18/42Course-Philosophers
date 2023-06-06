@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/05 15:12:41 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/06 22:32:20 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static void finish_philo(t_list *info)
 	while(i < info->n_philo)
 	{
 		pthread_mutex_destroy(&info->fork_mutex[i]);
-		pthread_mutex_destroy((*info).philos[i].read_updt);
+		pthread_mutex_destroy(&info->philos[i].read_updt);
 	}
 	pthread_mutex_destroy(&info->write);
 	free(info->philos);
 	free(info->fork_mutex);
 }
 
-void check_df(void *info)
+void *check_df(void *info)
 {
 	t_philo *philo;
 	t_list *check_info;
@@ -39,23 +39,25 @@ void check_df(void *info)
 		pthread_mutex_lock(&philo->read_updt);
 		if(check_info->n_times_eat != -1 && check_info->finish_eat == check_info->n_philo)
 			check_info->finish_status = 1;
-		if (take_time() - philo->t_last_eat >= check_info->t_die && philo->is_eating == 0)
+		if (take_time() >= philo->t_last_eat && philo->is_eating == 0)
 		{
 			message("died", philo);
 			check_info->finish_status = 1;
 		}
 		pthread_mutex_unlock(&philo->read_updt);
 	}
+	return((void*)0);
 }
-void	routine(void *info)
+void	*routine(void *info)
 {
 	t_list	*r_info;
 	t_philo	*philosopher;
 
 	philosopher = info;
 	r_info = philosopher->info;
+	philosopher->t_last_eat = r_info->t_die + take_time();
 	if (pthread_create(&philosopher->checker, NULL, &check_df, &philosopher))
-		return ;
+		return((void *)1);
 	while (r_info->finish_status != 1)
 	{
 		philosopher_eat(philosopher);
@@ -67,8 +69,9 @@ void	routine(void *info)
 			}
 		philosopher_think(philosopher);
 	}
-	if(pthread_join(philosopher->checker, NULL));
-		return ;
+	if(pthread_join(philosopher->checker, NULL))
+		return((void*)0);
+	return((void*)0);
 }
 
 int	start_routine(t_list *info)
@@ -81,14 +84,15 @@ int	start_routine(t_list *info)
 	info->start_time = take_time();
 	while (i < info->n_philo)
 	{
-		if (pthread_create(&((*info).philos[i].philo_thr), NULL, &routine,
-				&(info->philos[i])))
+		if (pthread_create(&info->philos[i].philo_thr, NULL, &routine,
+				(void*)&(info->philos[i])))
 			return (0);
+		ft_sleep(500, info);
 		i++;
 	}
 	while (j < info->n_philo)
 	{
-		if (pthread_join((*info).philos[i].philo_thr, NULL))
+		if (pthread_join(info->philos[i].philo_thr, NULL))
 			return (0);
 		j++;
 	}
