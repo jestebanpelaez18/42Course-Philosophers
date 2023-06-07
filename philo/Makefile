@@ -6,7 +6,7 @@
 #    By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 17:22:57 by jpelaez-          #+#    #+#              #
-#    Updated: 2023/06/06 22:28:55 by jpelaez-         ###   ########.fr        #
+#    Updated: 2023/06/07 11:00:11 by jpelaez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ HEADER = philo.h
 
 FLAGS = -Wall -Wextra -Werror 
 IFLAGS = -I $(HEADER) 
-
+SANITIZE = -fsanitize=thread -g -O1
 CC = CC 
 
 all: $(NAME) 

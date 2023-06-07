@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/06 22:32:20 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:45:43 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,34 @@ static void finish_philo(t_list *info)
 		pthread_mutex_destroy(&info->philos[i].read_updt);
 	}
 	pthread_mutex_destroy(&info->write);
+	pthread_mutex_destroy(&info->read);
 	free(info->philos);
 	free(info->fork_mutex);
 }
 
-void *check_df(void *info)
+void check_df(t_list *info)
 {
-	t_philo *philo;
-	t_list *check_info;
-	
-	philo = info;
-	check_info = philo->info;
-	while(check_info->finish_status != 1)
+	int i;
+	i = 0; 
+	while(info->finish_status != 1)
 	{
-		pthread_mutex_lock(&philo->read_updt);
-		if(check_info->n_times_eat != -1 && check_info->finish_eat == check_info->n_philo)
-			check_info->finish_status = 1;
-		if (take_time() >= philo->t_last_eat && philo->is_eating == 0)
+		if(info->n_times_eat != 0 && info->finish_eat == info->n_philo)
 		{
-			message("died", philo);
-			check_info->finish_status = 1;
+			info->finish_status = 1;
+			break ;
 		}
-		pthread_mutex_unlock(&philo->read_updt);
+		while(i < info->n_philo)
+		{
+			pthread_mutex_lock(&info->read);
+			if (take_time() >= info->philos[i].t_last_eat && info->philos[i].is_eating == 0)
+			{
+				message("died", &info->philos[i]);
+				info->finish_status = 1;
+				break ;
+			}
+			pthread_mutex_unlock(&info->read);
+		}
 	}
-	return((void*)0);
 }
 void	*routine(void *info)
 {
@@ -56,21 +60,19 @@ void	*routine(void *info)
 	philosopher = info;
 	r_info = philosopher->info;
 	philosopher->t_last_eat = r_info->t_die + take_time();
-	if (pthread_create(&philosopher->checker, NULL, &check_df, &philosopher))
-		return((void *)1);
+	if(philosopher->identity_n % 2)
+		ft_sleep(r_info->t_eat / 50, r_info);
 	while (r_info->finish_status != 1)
 	{
 		philosopher_eat(philosopher);
-		if (r_info->n_times_eat != -1
-			&& r_info->n_times_eat == philosopher->eat_count)
-			{
-				r_info->finish_eat++;
-				break ;
-			}
+		if (r_info->n_times_eat != 0 && r_info->n_times_eat == philosopher->eat_count)
+		{
+			r_info->finish_eat++;
+			break ;
+		}
+		philosopher_sleep(philosopher);
 		philosopher_think(philosopher);
 	}
-	if(pthread_join(philosopher->checker, NULL))
-		return((void*)0);
 	return((void*)0);
 }
 
@@ -87,9 +89,9 @@ int	start_routine(t_list *info)
 		if (pthread_create(&info->philos[i].philo_thr, NULL, &routine,
 				(void*)&(info->philos[i])))
 			return (0);
-		ft_sleep(500, info);
 		i++;
 	}
+	check_df(info);
 	while (j < info->n_philo)
 	{
 		if (pthread_join(info->philos[i].philo_thr, NULL))

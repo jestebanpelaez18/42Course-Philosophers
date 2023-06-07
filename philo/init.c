@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/06 19:59:56 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:35:45 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	get_data(t_list *info, char **phi_arg, int argc)
 	if (argc == 6)
 		info->n_times_eat = ft_atoi(phi_arg[5]);
 	else
-		info->n_times_eat = -1;
+		info->n_times_eat = 0;
 	if (info->n_philo <= 0 || info->t_die <= 0 || info->t_eat <= 0
-		|| info->t_sleep <= 0)
+		|| info->t_sleep <= 0 || info->n_times_eat < 0)
 	{
 		printf("Error, not valid arguments");
 		return (0);
@@ -50,6 +50,8 @@ int	set_mutex(t_list *info)
 		i++;
 	}
 	if (pthread_mutex_init(&info->write, NULL))
+		return (0);
+	if (pthread_mutex_init(&info->read, NULL))
 		return (0);
 	return (1);
 }
