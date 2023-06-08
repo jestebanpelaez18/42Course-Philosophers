@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/07 13:35:45 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/08 14:01:45 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	get_data(t_list *info, char **phi_arg, int argc)
 	info->t_eat = ft_atoi(phi_arg[3]);
 	info->t_sleep = ft_atoi(phi_arg[4]);
 	info->dead_philo = 0;
-	// info->start_time = take_time();
 	info->finish_status = 0;
 	info->finish_eat = 0;
 	if (argc == 6)
