@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/08 14:01:45 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:44:33 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	set_mutex(t_list *info)
 
 int	generate_philos(t_list *info)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	info->philos = malloc(sizeof(t_philo) * (info->n_philo));
