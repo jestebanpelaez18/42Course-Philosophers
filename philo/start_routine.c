@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/14 14:44:05 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:39:32 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	finish_philo(t_list *info)
 	{
 		pthread_mutex_destroy(&info->fork_mutex[i]);
 		pthread_mutex_destroy(&info->philos[i].read_updt);
+		i++;
 	}
 	pthread_mutex_destroy(&info->write);
 	pthread_mutex_destroy(&info->read);
