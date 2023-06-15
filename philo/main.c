@@ -6,11 +6,22 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:14:30 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/05/24 16:18:36 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:11:26 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	philo_for_one(t_list *info)
+{
+	info->start_time = take_time();
+	pthread_mutex_lock(&info->fork_mutex[info->philos->l_fork]);
+	message("has taken a fork", &info->philos[0]);
+	pthread_mutex_unlock(&info->fork_mutex[info->philos->l_fork]);
+	ft_sleep(info->t_die, info);
+	message("died", &info->philos[0]);
+	finish_philo(info);
+}
 
 static int	check_arguments(char **arguments, int n_arg)
 {
@@ -47,6 +58,11 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!generate_philos(&info))
 		return (0);
+	if (info.n_philo == 1)
+	{
+		philo_for_one(&info);
+		return (0);
+	}
 	if (!start_routine(&info))
 		return (0);
 	return (0);

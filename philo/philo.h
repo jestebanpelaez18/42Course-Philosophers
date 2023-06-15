@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/14 14:43:49 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:06:03 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void				philo_forks_in_table(t_philo *philo, t_list *info);
 void				philo_take_two_fors(t_philo *philo, t_list *info);
 void				message(char *str, t_philo *philo);
 void				philosopher_think(t_philo *philo);
+void				finish_philo(t_list *info);
 
 #endif

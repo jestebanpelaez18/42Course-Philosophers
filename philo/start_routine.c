@@ -6,13 +6,13 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/15 15:39:32 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:05:41 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	finish_philo(t_list *info)
+void	finish_philo(t_list *info)
 {
 	int	i;
 
