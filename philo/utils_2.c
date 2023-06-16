@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 22:12:42 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/16 14:47:09 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/16 21:44:02 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	ft_sleep(long long time, t_list *info)
 	{
 		if (take_time() - start >= time)
 			break ;
-		usleep(10);
+		usleep(info->n_philo * 2);
 	}
 }
