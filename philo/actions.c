@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 10:47:04 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/14 14:45:10 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:50:36 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ void	philosopher_eat(t_philo *philo)
 	{
 		philo_take_two_fors(philo, philo->info);
 		pthread_mutex_lock(&philo->read_updt);
-		philo->is_eating = 1;
 		philo->t_last_eat = take_time();
 		message("is eating", philo);
 		philo->eat_count++;
 		ft_sleep(philo->info->t_eat, philo->info);
-		philo->is_eating = 0;
 		pthread_mutex_unlock(&philo->read_updt);
 		philo_forks_in_table(philo, philo->info);
 	}

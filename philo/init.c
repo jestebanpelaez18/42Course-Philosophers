@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/14 14:44:33 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:50:46 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int	generate_philos(t_list *info)
 		info->philos[i].info = info;
 		info->philos[i].eat_count = 0;
 		info->philos[i].t_last_eat = take_time();
-		info->philos[i].is_eating = 0;
 		info->philos[i].identity_n = i + 1;
 		info->philos[i].l_fork = i;
 		info->philos[i].r_fork = ((i + 1) % info->n_philo);

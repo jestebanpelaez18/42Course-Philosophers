@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 22:12:42 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/14 14:44:59 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:47:09 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	message(char *str, t_philo *philo)
 {
 	int	timestamp;
 
-	timestamp = take_time() - philo->info->start_time;
 	pthread_mutex_lock(&philo->info->write);
+	timestamp = take_time() - philo->info->start_time;
 	if (philo->info->finish_status != 1)
 	{
 		printf("%d %d %s\n", timestamp, philo->identity_n, str);

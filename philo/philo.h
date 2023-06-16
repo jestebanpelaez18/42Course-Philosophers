@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/15 16:06:03 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:51:07 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,11 @@ typedef struct s_philo
 	struct s_list	*info;
 	int				identity_n;
 	int				eat_count;
-	int				is_eating;
 	long long		t_last_eat;
 	int				l_fork;
 	int				r_fork;
 	pthread_mutex_t	read_updt;
 	pthread_t		philo_thr;
-	pthread_t		checker;
 }					t_philo;
 
 typedef struct s_list

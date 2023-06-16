@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/15 16:05:41 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:44:50 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	*routine(void *info)
 			&& r_info->n_times_eat == philosopher->eat_count)
 		{
 			r_info->finish_eat++;
+			philosopher_sleep(philosopher);
+			philosopher_think(philosopher);
 			break ;
 		}
 		philosopher_sleep(philosopher);
