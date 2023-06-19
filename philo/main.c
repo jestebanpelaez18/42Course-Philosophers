@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:14:30 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/19 16:01:18 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:36:51 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	philo_for_one(t_list *info)
 static int	check_arguments(char **arguments, int n_arg)
 {
 	int	i;
-	int	j;
 
 	i = 1;
 	if (n_arg != 5 && n_arg != 6)

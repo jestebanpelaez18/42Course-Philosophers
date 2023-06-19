@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/19 15:59:11 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:49:34 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	finish_philo(t_list *info)
 void	check_df(t_list *info)
 {
 	int			i;
-	long long	current;
 
 	while (info->finish_status != 1)
 	{
