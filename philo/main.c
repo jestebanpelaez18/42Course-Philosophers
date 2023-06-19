@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:14:30 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/15 17:21:00 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:01:18 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	philo_for_one(t_list *info)
 	pthread_mutex_lock(&info->fork_mutex[info->philos->l_fork]);
 	message("has taken a fork", &info->philos[0]);
 	pthread_mutex_unlock(&info->fork_mutex[info->philos->l_fork]);
-	ft_sleep(info->t_die, info);
+	ft_sleep(info->t_die);
 	message("died", &info->philos[0]);
 	finish_philo(info);
 }

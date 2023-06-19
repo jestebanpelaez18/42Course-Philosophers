@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/16 14:51:07 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:01:03 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int					get_data(t_list *info, char **phi_arg, int argc);
 long long			take_time(void);
 int					start_routine(t_list *info);
 
-void				ft_sleep(long long time, t_list *info);
+void				ft_sleep(long long time);
 void				philosopher_eat(t_philo *philo);
 void				philosopher_sleep(t_philo *philo);
 void				philo_forks_in_table(t_philo *philo, t_list *info);

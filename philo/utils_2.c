@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 22:12:42 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/16 21:44:02 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:07:59 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ void	message(char *str, t_philo *philo)
 	pthread_mutex_unlock(&philo->info->write);
 }
 
-void	ft_sleep(long long time, t_list *info)
+void	ft_sleep(long long time)
 {
 	long long	start;
 
 	start = take_time();
-	while (!info->finish_status)
+	while (1)
 	{
 		if (take_time() - start >= time)
 			break ;
-		usleep(info->n_philo * 2);
+		usleep(1400);
 	}
 }

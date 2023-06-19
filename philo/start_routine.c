@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 11:53:36 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/16 14:44:50 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:59:11 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	*routine(void *info)
 	r_info = philosopher->info;
 	philosopher->t_last_eat = take_time();
 	if (philosopher->identity_n % 2)
-		ft_sleep(r_info->t_eat / 50, r_info);
+		ft_sleep(r_info->t_eat / 50);
 	while (r_info->finish_status != 1)
 	{
 		philosopher_eat(philosopher);

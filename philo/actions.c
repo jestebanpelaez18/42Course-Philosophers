@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 10:47:04 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/16 21:45:38 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:00:48 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	philosopher_eat(t_philo *philo)
 		philo->t_last_eat = take_time();
 		message("is eating", philo);
 		philo->eat_count++;
-		ft_sleep(philo->info->t_eat, philo->info);
+		ft_sleep(philo->info->t_eat);
 		pthread_mutex_unlock(&philo->read_updt);
 		philo_forks_in_table(philo, philo->info);
 	}
@@ -52,6 +52,6 @@ void	philosopher_sleep(t_philo *philo)
 	if (philo->info->finish_status != 1)
 	{
 		message("is sleeping", philo);
-		ft_sleep(philo->info->t_sleep, philo->info);
+		ft_sleep(philo->info->t_sleep);
 	}
 }
