@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 17:12:59 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/16 14:50:46 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:26:43 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,23 @@ int	get_data(t_list *info, char **phi_arg, int argc)
 	info->t_die = ft_atoi(phi_arg[2]);
 	info->t_eat = ft_atoi(phi_arg[3]);
 	info->t_sleep = ft_atoi(phi_arg[4]);
-	info->dead_philo = 0;
 	info->finish_status = 0;
 	info->finish_eat = 0;
 	if (argc == 6)
-		info->n_times_eat = ft_atoi(phi_arg[5]);
-	else
-		info->n_times_eat = 0;
-	if (info->n_philo <= 0 || info->t_die <= 0 || info->t_eat <= 0
-		|| info->t_sleep <= 0 || info->n_times_eat < 0)
 	{
-		printf("Error, not valid arguments");
+		info->n_times_eat = ft_atoi(phi_arg[5]);
+		if (info->n_times_eat == 0)
+			return (0);
+		if (info->n_times_eat < 0)
+		{
+			printf("Error, not valid arguments\n");
+			return (0);
+		}
+	}
+	if (info->n_philo <= 0 || info->t_die <= 0 || info->t_eat <= 0
+		|| info->t_sleep <= 0)
+	{
+		printf("Error, not valid arguments\n");
 		return (0);
 	}
 	return (1);

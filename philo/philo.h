@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:01 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/06/19 16:01:03 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:26:11 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_list
 	int				t_sleep;
 	int				t_eat;
 	int				n_times_eat;
-	int				dead_philo;
 	long long		start_time;
 	int				finish_eat;
 	int				finish_status;
